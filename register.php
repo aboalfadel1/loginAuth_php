@@ -1,6 +1,7 @@
 <?php session_start() ?>
 <?php include "connection.php"; ?>
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +24,18 @@
             <p><input type="submit" name="submit" id="" value="Register"></p>
         </form>
     </div>
+=======
+<?php include "templates/header.php" ?>
+
+<div class="container">
+    <h1>Ihre Personal Info Vollständig eingaben</h1>
+    <form action="" method="POST">
+        <p>Username <input type="text" placeholder="Benutzername zum Login" name="username"></p>
+        <p>password <input type="password" name="password"></p>
+        <p><input type="submit" name="submit" id="" value="Register"></p>
+    </form>
+</div>
+>>>>>>> a51edef (after modified)
 </body>
 <?php
 if(isset($_POST["submit"])){

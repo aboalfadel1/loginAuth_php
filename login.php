@@ -1,4 +1,5 @@
 <?php include "connection.php"; 
+session_start();
 
 
 ?>
@@ -7,6 +8,8 @@
 
 <div class="container">
     <h3><?php
+              
+
                     if(isset($_SESSION['msg'])){
                         echo $_SESSION["msg"];
                         unset($_SESSION["msg"]);
@@ -14,6 +17,11 @@
                   else if(isset($_SESSION["faild"])){
                     echo $_SESSION["faild"];
                     unset ($_SESSION["faild"]);
+
+                   }
+                   elseif(isset($_SESSION["passSuccess"])){
+                    echo $_SESSION["passSuccess"];
+                    unset ($_SESSION["passSuccess"]);
                    }
         
                     ?></h3>
@@ -42,10 +50,7 @@
        
         }
         else {
-            echo "fail";
-         
             $_SESSION["faild"]="Password or username doesnt match";
-          
         }
     }
 

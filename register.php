@@ -62,7 +62,7 @@ if(isset($_POST["submit"])){
             echo "failed to add user";
         }
         unset($_POST["submit"]);
-        header("locatioN:login.php");
+        header("location:login.php");
     }   
 
 }

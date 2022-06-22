@@ -1,7 +1,8 @@
-<?php include "init.php"?>
+<?php include "login-check.php"?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,15 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
+        <a href="logout.php" class="logout">Logout</a>
+
         <h1>Main Seite</h1>
         <p><a href="mange.php">Mange Page</a></p>
     </div>
-  
+
 </body>
+
 </html>

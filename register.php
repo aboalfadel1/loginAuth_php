@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <?php include "connection.php"; ?>
     <meta charset="UTF-8">
@@ -11,12 +12,13 @@
     <title>Document</title>
 
 </head>
+
 <body>
     <div class="container">
         <h1>Ihre Personal Info Vollständig eingaben</h1>
         <form action="" method="POST">
             <p>Username <input type="text" placeholder="Benutzername zum Login" name="username"></p>
-            <p>password   <input type="password"  name="password"></p>
+            <p>password <input type="password" name="password"></p>
             <p><input type="submit" name="submit" id="" value="Register"></p>
         </form>
     </div>
@@ -35,7 +37,7 @@ if(isset($_POST["submit"])){
     }
     else
     {
-        $password=sha1($_POST["password"]);
+        $password=$_POST["password"];
 
         $sql="INSERT INTO users (username, password) VALUES ('$username','$password')";
         $res=mysqli_query($conn,$sql) or die();
@@ -53,4 +55,5 @@ if(isset($_POST["submit"])){
 
 
 ?>
+
 </html>

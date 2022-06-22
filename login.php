@@ -1,8 +1,11 @@
-<?php session_start() ?>
-<?php include "connection.php"; ?>
+<?php include "connection.php"; 
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +13,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <h3><?php
@@ -28,20 +32,24 @@
             <p>Username <input type="text" name="username"></p>
             <p>Password &nbsp;<input type="password" name="password"></p>
             <input type="submit" name="submit">
-            <p><a href="register.php">Register</a> 	&nbsp; 	&nbsp; 		&nbsp;&nbsp;<a href="">Password vergessen ?</a></p>
+            <p><a href="register.php">Register</a> &nbsp; &nbsp; &nbsp;&nbsp;<a href="">Password vergessen ?</a></p>
         </form>
-      
+
     </div>
     <?php
     if(isset($_POST['submit'])){
         $username=$_POST["username"];
-        $password=sha1($_POST["password"]);
-        $sql="SELECT * FROM login.users WHERE username='$username' AND password='$password'";
-        $res=mysqli_query($conn,$sql);
+        echo $username;
+        echo "<br>";
+        $password=$_POST["password"];
+        echo $password;
+        echo "<br>";
+        $sql="SELECT * FROM users WHERE username='$username' AND password='$password'";
+        $res=mysqli_query($conn,$sql) or die("fehler");
         print_r($res);
-        $count=mysqli_num_rows($res);
-        echo $count;
-        if($count==1){
+     
+        if( mysqli_num_rows($res)==1 ){
+            session_start();
             $_SESSION["user"]=$username;
             header("location:index.php");
             echo "ok0";
@@ -52,6 +60,7 @@
     }
 
     
-    ?> 
+    ?>
 </body>
+
 </html>

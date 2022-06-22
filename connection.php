@@ -1,9 +1,7 @@
 <?php
-$conn=new mysqli("localhost","root","","login");
-if($conn){
-    echo "seccess";
+$conn=mysqli_connect("localhost:3309","root","","authlogin");
+if(!$conn){
+    mysqli_error();
 }
-else {
-echo "faild";
-}
+
 ?>
